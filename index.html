@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws & Care - Animal Rescue</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#" class="flex items-center py-4 px-2">
+                            <img src="images/paw-logo.png" alt="Logo" class="h-10 w-10 mr-2">
+                            <span class="font-semibold text-gray-900 text-lg">Paws & Care</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="#home" class="py-4 px-2 text-green-600 font-semibold">Home</a>
+                        <a href="#report" class="py-4 px-2 text-gray-500 hover:text-green-600 transition duration-300">Report Animal</a>
+                        <a href="#adopt" class="py-4 px-2 text-gray-500 hover:text-green-600 transition duration-300">Adopt</a>
+                        <a href="#about" class="py-4 px-2 text-gray-500 hover:text-green-600 transition duration-300">About Us</a>
+                        <a href="#contact" class="py-4 px-2 text-gray-500 hover:text-green-600 transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="php/admin/login.php" class="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition duration-300">Admin Login</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden mobile-menu">
+            <ul class="">
+                <li><a href="#home" class="block text-sm px-2 py-4 hover:bg-green-600 hover:text-white transition duration-300">Home</a></li>
+                <li><a href="#report" class="block text-sm px-2 py-4 hover:bg-green-600 hover:text-white transition duration-300">Report Animal</a></li>
+                <li><a href="#adopt" class="block text-sm px-2 py-4 hover:bg-green-600 hover:text-white transition duration-300">Adopt</a></li>
+                <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-green-600 hover:text-white transition duration-300">About Us</a></li>
+                <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-600 hover:text-white transition duration-300">Contact</a></li>
+                <li><a href="php/admin/login.php" class="block text-sm px-2 py-4 hover:bg-green-600 hover:text-white transition duration-300">Admin Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-green-50 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl font-bold text-gray-800 mb-6">Rescue, Rehabilitate, Rehome</h1>
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Join us in our mission to save animals in need and find them loving forever homes.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#report" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    Report an Animal in Need
+                </a>
+                <a href="#adopt" class="bg-white hover:bg-gray-100 text-green-600 font-bold py-3 px-6 border border-green-600 rounded-lg transition duration-300">
+                    Adopt a Furry Friend
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Animal Section -->
+    <section id="report" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Report an Animal in Need</h2>
+            <div class="max-w-4xl mx-auto bg-gray-50 rounded-xl shadow-md overflow-hidden p-8">
+                <form id="reportForm" enctype="multipart/form-data">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="animalType" class="block text-sm font-medium text-gray-700 mb-1">Animal Type</label>
+                            <select id="animalType" name="animalType" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600">
+                                <option value="">Select an animal</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                                <option value="bird">Bird</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="condition" class="block text-sm font-medium text-gray-700 mb-1">Condition</label>
+                            <select id="condition" name="condition" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600">
+                                <option value="">Select condition</option>
+                                <option value="injured">Injured</option>
+                                <option value="sick">Sick</option>
+                                <option value="abandoned">Abandoned</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                        <input type="text" id="location" name="location" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" placeholder="Enter street address or landmark">
+                    </div>
+                    
+                    <div class="mt-6">
+                        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <textarea id="description" name="description" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" placeholder="Provide details about the animal's condition and situation"></textarea>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <label for="photo" class="block text-sm font-medium text-gray-700 mb-1">Upload Photo</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="photo" class="relative cursor-pointer bg-white rounded-md font-medium text-green-600 hover:text-green-500 focus-within:outline-none">
+                                        <span>Upload a file</span>
+                                        <input id="photo" name="photo" type="file" class="sr-only" accept="image/*">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PNG, JPG, GIF up to 5MB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-paw mr-2"></i> Submit Report
+                        </button>
+                    </div>
+                </form>
+                <div id="reportSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                    Thank you for your report! Our team will review it and take action soon.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adopt Section -->
+    <section id="adopt" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Animals Available for Adoption</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="animalsContainer">
+                <!-- Animals will be loaded here via JavaScript -->
+                <div class="text-center py-8">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-600 mx-auto"></div>
+                    <p class="mt-4 text-gray-600">Loading animals...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Modal -->
+    <div id="adoptionModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6 mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Adoption Form</h3>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="adoptionForm">
+                <input type="hidden" id="animalId" name="animalId">
+                <div class="mb-4">
+                    <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" required>
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" required>
+                </div>
+                <div class="mb-4">
+                    <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                    <textarea id="address" name="address" rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="experience" class="block text-sm font-medium text-gray-700 mb-1">Previous Pet Experience</label>
+                    <textarea id="experience" name="experience" rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600"></textarea>
+                </div>
+                <div class="mt-6">
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                        Submit Adoption Request
+                    </button>
+                </div>
+            </form>
+            <div id="adoptionSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                Your adoption request has been submitted! We'll contact you soon.
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Paws & Care</h2>
+                    <p class="text-gray-600 mb-4">
+                        Paws & Care is a non-profit organization dedicated to rescuing, rehabilitating, and rehoming animals in need. 
+                        Our team of passionate volunteers works tirelessly to provide medical care, shelter, and love to animals who 
+                        have been abandoned, abused, or neglected.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Since our founding in 2015, we've rescued over 2,000 animals and found loving homes for more than 1,800 of them. 
+                        We believe every animal deserves a second chance at happiness.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        <div class="bg-green-100 p-4 rounded-lg flex-1 min-w-[200px]">
+                            <h3 class="font-bold text-green-800 text-xl mb-2">2,000+</h3>
+                            <p class="text-gray-600">Animals Rescued</p>
+                        </div>
+                        <div class="bg-green-100 p-4 rounded-lg flex-1 min-w-[200px]">
+                            <h3 class="font-bold text-green-800 text-xl mb-2">1,800+</h3>
+                            <p class="text-gray-600">Successful Adoptions</p>
+                        </div>
+                        <div class="bg-green-100 p-4 rounded-lg flex-1 min-w-[200px]">
+                            <h3 class="font-bold text-green-800 text-xl mb-2">50+</h3>
+                            <p class="text-gray-600">Dedicated Volunteers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative rounded-xl overflow-hidden shadow-lg">
+                        <img src="images/rescue-team.jpg" alt="Rescue Team" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white">
+                            <h3 class="text-xl font-bold">Our Rescue Team in Action</h3>
+                            <p>Saving lives every day</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Get in Touch</h3>
+                    <p class="text-gray-600 mb-6">
+                        Have questions or want to get involved? Reach out to us using the form or contact details below.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-map-marker-alt text-green-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">“United City”, Madani Avenue, Badda </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-phone-alt text-green-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">+880 1775747938</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-envelope text-green-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">masudalakib@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-gray-800 mb-3">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-green-600 transition duration-300">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-green-600 transition duration-300">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-green-600 transition duration-300">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-green-600 transition duration-300">
+                                <i class="fab fa-youtube text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form id="contactForm" class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="mb-4">
+                            <label for="contactName" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="contactName" name="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="contactEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="contactEmail" name="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="contactSubject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <input type="text" id="contactSubject" name="subject" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="contactMessage" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="contactMessage" name="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600" required></textarea>
+                        </div>
+                        <div class="mt-6">
+                            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    <div id="contactSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                        Your message has been sent! We'll get back to you soon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Paws & Care</h3>
+                    <p class="text-gray-400">
+                        Dedicated to rescuing, rehabilitating, and rehoming animals in need.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#report" class="text-gray-400 hover:text-white transition duration-300">Report Animal</a></li>
+                        <li><a href="#adopt" class="text-gray-400 hover:text-white transition duration-300">Adopt</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Adoption Process</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">How to Adopt</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Adoption Fees</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Adoption Stories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates on our rescues and events.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div> 
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Paws & Care. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
